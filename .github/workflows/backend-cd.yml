@@ -41,6 +41,7 @@ jobs:
 
       - name: Attach ACR
         run: |
+          az login --service-principal -u f8f00fd7-9942-4538-927b-ae801d5bb663 -p ".D08Q~Acc1givRaJP30CgOl4lNz4QuhwAfCvWafi" --tenant 2625129d-99a2-4df5-988e-5c5d07e7d0fb
           az aks update --name ${{ github.event.inputs.aks_cluster_name }} --resource-group ${{ github.event.inputs.aks_resource_group }} --attach-acr ${{ github.event.inputs.aks_acr_name }}
 
       - name: Deploy Backend Infrastructure (Namespace, ConfigMaps, Secrets, Databases)
